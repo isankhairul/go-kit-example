@@ -1,0 +1,295 @@
+basePath: /
+definitions:
+  BaseIDModel:
+    properties:
+      is_deleted:
+        type: boolean
+        x-go-name: IsDeleted
+      uid:
+        description: |-
+          UID of the product
+          in: int64
+        type: string
+        x-go-name: UID
+    type: object
+    x-go-package: go-kit-example/app/model/base
+  DataResponse:
+    properties:
+      record:
+        type: object
+        x-go-name: Record
+      records:
+        type: object
+        x-go-name: Records
+    type: object
+    x-go-name: data
+    x-go-package: go-kit-example/app/model/base
+  MetaResponse:
+    properties:
+      code:
+        description: |-
+          Code is the response code
+          in: int
+        format: int64
+        type: integer
+        x-go-name: Code
+      message:
+        description: |-
+          Message is the response message
+          in: string
+        type: string
+        x-go-name: Message
+    type: object
+    x-go-name: metaResponse
+    x-go-package: go-kit-example/app/model/base
+  PaginationResponse:
+    properties:
+      limit:
+        format: int64
+        type: integer
+        x-go-name: Limit
+      page:
+        format: int64
+        type: integer
+        x-go-name: Page
+      records:
+        format: int64
+        type: integer
+        x-go-name: Records
+      total_page:
+        format: int64
+        type: integer
+        x-go-name: TotalPage
+      total_records:
+        format: int64
+        type: integer
+        x-go-name: TotalRecords
+    type: object
+    x-go-name: Pagination
+    x-go-package: go-kit-example/app/model/base
+  ProductListRequest:
+    properties:
+      Limit:
+        description: |-
+          Maximun records per page
+          in: int32
+        format: int64
+        type: integer
+      Name:
+        description: |-
+          Name keyword of the product
+          in: string
+        type: string
+      Page:
+        description: |-
+          Page No
+          in: int32
+        format: int64
+        type: integer
+      Sku:
+        type: string
+      Sort:
+        example: name asc, uom desc
+        type: string
+      UOM:
+        description: |-
+          Sku of the product
+          in: string
+        type: string
+    type: object
+    x-go-package: go-kit-example/app/model/request
+  SaveProductRequest:
+    properties:
+      name:
+        description: |-
+          Name of the product
+          in: string
+        type: string
+        x-go-name: Name
+      sku:
+        description: |-
+          Sku of the product
+          in: string
+        type: string
+        x-go-name: Sku
+      uid:
+        description: |-
+          Uid of the product, use this on UPDATE function
+          in: int32
+        type: string
+        x-go-name: Uid
+      uom:
+        description: |-
+          Uom of the product
+          in: string
+        type: string
+        x-go-name: Uom
+      weight:
+        description: |-
+          Weight of the product
+          in: int32
+        format: int32
+        type: integer
+        x-go-name: Weight
+    type: object
+    x-go-package: go-kit-example/app/model/request
+  SuccessResponse:
+    properties:
+      data:
+        $ref: '#/definitions/DataResponse'
+      meta:
+        $ref: '#/definitions/MetaResponse'
+      pagination:
+        $ref: '#/definitions/PaginationResponse'
+    type: object
+    x-go-name: responseHttp
+    x-go-package: go-kit-example/app/model/base
+  product:
+    properties:
+      is_deleted:
+        type: boolean
+        x-go-name: IsDeleted
+      name:
+        description: |-
+          Name of the product
+          in: string
+        type: string
+        x-go-name: Name
+      sku:
+        description: |-
+          Sku of the product
+          in: string
+        type: string
+        x-go-name: Sku
+      uid:
+        description: |-
+          UID of the product
+          in: int64
+        type: string
+        x-go-name: UID
+      uom:
+        description: |-
+          Uom of the product
+          in: string
+        type: string
+        x-go-name: Uom
+      weight:
+        description: |-
+          Weight of the product
+          in: int32
+        format: int32
+        type: integer
+        x-go-name: Weight
+    type: object
+    x-go-name: Product
+    x-go-package: go-kit-example/app/model/entity
+host: localhost:5700
+info:
+  title: 'KD example Go kit:'
+  version: "1.0"
+paths:
+  /product/:
+    get:
+      description: Get product
+      operationId: get_product
+      responses:
+        "200":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        "401":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      security:
+      - apiKey:
+        - '[]'
+      tags:
+      - product
+    post:
+      description: Update product
+      operationId: SaveProductRequest
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/SaveProductRequest'
+        x-go-name: Body
+      responses:
+        "200":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        "401":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      security:
+      - apiKey:
+        - '[]'
+      tags:
+      - product
+  /product/{id}:
+    delete:
+      description: Delete product
+      operationId: delete_product
+      responses:
+        "200":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        "401":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      security:
+      - apiKey:
+        - '[]'
+      tags:
+      - product
+    put:
+      description: Update product
+      operationId: SaveProductRequest
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/SaveProductRequest'
+        x-go-name: Body
+      responses:
+        "200":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        "401":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      security:
+      - apiKey:
+        - '[]'
+      tags:
+      - product
+  /product/list:
+    get:
+      description: Get products
+      operationId: productList
+      responses:
+        "200":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        "401":
+          description: SuccessResponse
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      security:
+      - apiKey:
+        - '[]'
+      tags:
+      - product
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"

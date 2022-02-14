@@ -1,0 +1,34 @@
+#logging settings
+log:
+  filename: ./microservice.log
+  level: DEBUG
+
+#database settings
+database:
+  driver: sqlite
+  hostname: 10.1.35.39
+  port: 5432
+  username: app_user
+  password: app_userPWD2019
+  dbname: local.db
+
+server:
+  port: 5601
+  env: dev
+  log-output: console
+  output-file-path: ./microservice.log
+  config-path: .
+  service-name: microservice
+
+security:
+  jwt:
+    secret: adPcd+mrzpsZEkKxsOhgcw==
+    token-validity-in-second: 86400
+    token-validity-in-second-for-remember-me: 2592000
+
+cache:
+  redis:
+    host: localhost
+    user: 
+    password: 
+    port: 6379

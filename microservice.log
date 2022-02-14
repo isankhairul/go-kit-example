@@ -1,0 +1,8 @@
+level=info ts=2022-02-14T11:00:51.47996573Z caller=main.go:77 message="Connection Db Success"
+level=info ts=2022-02-14T11:00:51.480764827Z caller=main.go:86 transport=HTTP addr=5601
+level=info ts=2022-02-14T11:01:25.148205885Z caller=main.go:95 exit=interrupt
+level=info ts=2022-02-14T11:01:27.685807203Z caller=main.go:78 message="Connection Db Success"
+level=info ts=2022-02-14T11:01:27.686624419Z caller=main.go:87 transport=HTTP addr=5601
+level=error ts=2022-02-14T11:02:28.97680515Z caller=product_service.go:79 ProductService=GetProduct
+level=error ts=2022-02-14T11:03:22.85147658Z caller=product_service.go:79 ProductService=GetProduct
+level=info ts=2022-02-14T11:05:22.408454465Z caller=main.go:96 exit=interrupt

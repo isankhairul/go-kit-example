@@ -1,0 +1,12 @@
+#logging settings
+log:
+  filename: ./microservice.log
+  level: DEBUG
+
+#database settings
+database:
+  hostname: localhost
+  port: 5432
+  username: postgres
+  password: jiren1411
+  schema: testong

@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "99927334-bfc3-4f55-909f-29ebaab629d6",
+		"name": "Go Kit Example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Cheetos\",\r\n    \"sku\": \"CH005\",\r\n    \"uom\": \"PCS\",\r\n    \"weight\": 50\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5601/product/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5601",
+					"path": [
+						"product",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5601/product/Zqq4DGhOEfC_VO2zsOYok",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5601",
+					"path": [
+						"product",
+						"Zqq4DGhOEfC_VO2zsOYok"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Chiki Balls\",\r\n    \"sku\": \"CH001\",\r\n    \"uom\": \"PCS\",\r\n    \"weight\": 70\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5601/product/list?limit=10&page=1&sort=name asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5601",
+					"path": [
+						"product",
+						"list"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": "name asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uid\": \"Zqq4DGhOEfC_VO2zsOYok\",\r\n    \"name\": \"Chiki Balls 3\",\r\n    \"sku\": \"CH002\",\r\n    \"uom\": \"PCS\",\r\n    \"weight\": 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5601/product/YcipTj_mX03qC6BXPzx4G",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5601",
+					"path": [
+						"product",
+						"YcipTj_mX03qC6BXPzx4G"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5601/product/YcipTj_mX03qC6BXPzx4G",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5601",
+					"path": [
+						"product",
+						"YcipTj_mX03qC6BXPzx4G"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
